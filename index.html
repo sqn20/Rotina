@@ -121,6 +121,92 @@ input,select,textarea,button{font-family:'Space Grotesk',sans-serif;}
 .foot button{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);background:none;border:none;cursor:pointer;}
 .foot button:hover{color:var(--danger);}
 .loading{color:var(--muted);font-size:13px;padding:40px 0;text-align:center;font-family:'JetBrains Mono',monospace;}
+
+/* ===== Alimentação e visão semanal ===== */
+.meal-section{margin-top:28px;padding-top:22px;border-top:1px solid var(--border);}
+.section-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap;}
+.section-title{font-size:17px;font-weight:700;margin:0;}
+.meal-card{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:13px 14px;margin-bottom:10px;}
+.meal-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;}
+.meal-time{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);}
+.meal-name{font-size:15px;font-weight:600;margin-top:3px;}
+.meal-location{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--trab);margin-top:4px;text-transform:uppercase;}
+.meal-options{margin-top:10px;display:flex;flex-direction:column;gap:6px;}
+.meal-option{font-size:13px;padding:7px 9px;background:var(--bg);border-radius:6px;color:var(--text);}
+.meal-option::before{content:'•';color:var(--muted);margin-right:7px;}
+.meal-edit-card{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:12px;}
+.meal-edit-top{display:grid;grid-template-columns:120px 1fr 160px auto;gap:8px;align-items:center;}
+.meal-edit-top input,.meal-edit-top select,.option-edit input{background:var(--bg);border:1px solid var(--border);border-radius:6px;color:var(--text);padding:8px;font-size:13px;}
+.option-list{margin-top:10px;display:flex;flex-direction:column;gap:6px;}
+.option-edit{display:flex;gap:6px;}
+.option-edit input{flex:1;}
+.icon-danger{background:none;border:1px solid transparent;color:var(--muted);border-radius:6px;cursor:pointer;font-size:16px;padding:3px 8px;}
+.icon-danger:hover{color:var(--danger);border-color:var(--border);}
+.add-option{font-size:12px;color:var(--muted);background:none;border:1px dashed var(--border);border-radius:6px;padding:6px 9px;cursor:pointer;margin-top:7px;}
+.add-option:hover{color:var(--text);border-color:var(--muted);}
+.week-grid{display:grid;grid-template-columns:repeat(7,minmax(130px,1fr));gap:8px;overflow-x:auto;padding-bottom:8px;}
+.week-day{background:var(--panel);border:1px solid var(--border);border-radius:10px;min-height:360px;overflow:hidden;}
+.week-day.today{border-color:var(--text);}
+.week-day-head{padding:10px;border-bottom:1px solid var(--border);font-family:'JetBrains Mono',monospace;font-size:11px;}
+.week-day-head strong{display:block;font-size:13px;color:var(--text);margin-top:3px;}
+.week-events{padding:8px;}
+.week-event{border-left:3px solid var(--extra);background:var(--bg);border-radius:5px;padding:7px 8px;margin-bottom:7px;}
+.week-event.trab{border-left-color:var(--trab);}
+.week-event.aula{border-left-color:var(--aula);}
+.week-event.meal{border-left-color:var(--ok);}
+.week-event .we-time{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);}
+.week-event .we-label{font-size:12px;font-weight:500;margin-top:2px;}
+.week-event .we-detail{font-size:10px;color:var(--muted);margin-top:3px;line-height:1.35;}
+.week-empty{font-size:11px;color:var(--muted);padding:8px;}
+.week-nav{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:16px;}
+.week-nav-title{font-size:16px;font-weight:600;}
+@media(max-width:900px){
+  .week-grid{grid-template-columns:repeat(7,170px);}
+  .meal-edit-top{grid-template-columns:100px 1fr 130px auto;}
+}
+
+
+/* ===== VISÃO SEMANAL ===== */
+.weekly-header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px;flex-wrap:wrap;}
+.weekly-nav{display:flex;align-items:center;gap:6px;}
+.weekly-title{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--muted);}
+.weekly-grid{display:grid;grid-template-columns:repeat(7,minmax(150px,1fr));gap:8px;overflow-x:auto;padding-bottom:8px;}
+.week-day{background:var(--panel);border:1px solid var(--border);border-radius:12px;min-width:150px;overflow:hidden;}
+.week-day.today{border-color:var(--text);}
+.week-day-head{padding:12px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:8px;}
+.week-day-name{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);}
+.week-day-date{font-family:'JetBrains Mono',monospace;font-size:12px;}
+.week-day-progress{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);}
+.week-progress-track{height:3px;background:var(--border);}
+.week-progress-fill{height:100%;background:var(--text);transition:width .3s ease;}
+.week-items{padding:8px;}
+.week-item{padding:8px 7px;border-bottom:1px solid var(--border);display:flex;gap:7px;align-items:flex-start;}
+.week-item:last-child{border-bottom:0;}
+.week-item-check{width:16px;height:16px;flex:0 0 16px;border:1px solid var(--border);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:10px;margin-top:1px;}
+.week-item-check.done{background:var(--text);color:var(--bg);border-color:var(--text);}
+.week-item-body{min-width:0;flex:1;}
+.week-item-time{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);}
+.week-item-label{font-size:11px;line-height:1.3;margin-top:2px;}
+.week-item.done .week-item-label{color:var(--muted);text-decoration:line-through;}
+.week-meal{background:var(--bg);border-left:2px solid var(--ok);}
+.week-meal .week-item-label{font-weight:500;}
+.week-meal-options{font-size:9px;color:var(--muted);line-height:1.35;margin-top:3px;}
+.week-empty{color:var(--muted);font-size:11px;padding:12px 7px;}
+.week-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0 24px;}
+.week-summary .stat-card{min-width:0;}
+.week-legend{display:flex;gap:14px;flex-wrap:wrap;margin:0 0 14px;color:var(--muted);font-size:10px;font-family:'JetBrains Mono',monospace;}
+.week-legend span::before{content:'';display:inline-block;width:7px;height:7px;border-radius:2px;background:var(--border);margin-right:5px;}
+.week-legend .lg-meal::before{background:var(--ok);}
+.week-legend .lg-work::before{background:var(--trab);}
+.week-legend .lg-study::before{background:var(--aula);}
+.week-legend .lg-personal::before{background:var(--extra);}
+@media(max-width:1100px){
+  .weekly-grid{grid-template-columns:repeat(7,160px);}
+}
+@media(max-width:700px){
+  .week-summary{grid-template-columns:repeat(2,1fr);}
+}
+
 </style>
 </head>
 <body>
@@ -159,12 +245,13 @@ input,select,textarea,button{font-family:'Space Grotesk',sans-serif;}
       <button id="logout-btn">Sair</button>
     </div>
   </div>
-  <p class="subtitle">Horários, tarefas, checklist e relatório do dia.</p>
+  <p class="subtitle">Horários, alimentação, checklist, visão semanal e relatório do dia.</p>
 
   <div class="mode-switch">
     <button class="mode-btn active" id="btn-view">Acompanhar dia</button>
     <button class="mode-btn" id="btn-edit">Editar horários</button>
     <button class="mode-btn" id="btn-dash">Dashboard</button>
+    <button class="mode-btn" id="btn-week">Visão semanal</button>
   </div>
 
   <div id="loading-msg" class="loading">Carregando seus dados...</div>
@@ -227,6 +314,48 @@ input,select,textarea,button{font-family:'Space Grotesk',sans-serif;}
     </div>
   </div>
 
+
+  <div id="meals-mode" style="display:none;">
+    <div class="week-nav">
+      <div>
+        <p class="eyebrow">Organização Alimentação</p>
+        <div class="week-nav-title" id="meal-week-title"></div>
+      </div>
+      <div class="date-nav">
+        <button class="icon-btn" id="meal-prev-week" aria-label="Semana anterior">‹</button>
+        <button class="icon-btn" id="meal-next-week" aria-label="Próxima semana">›</button>
+      </div>
+    </div>
+
+    <div id="meal-view"></div>
+
+    <div class="meal-section">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Modelo semanal</p>
+          <h2 class="section-title">Editar refeições e opções</h2>
+        </div>
+        <button class="btn primary" id="add-meal-btn">+ adicionar refeição</button>
+      </div>
+      <div class="day-tabs" id="meal-day-tabs"></div>
+      <div id="meal-edit-list"></div>
+    </div>
+  </div>
+
+  <div id="week-mode" style="display:none;">
+    <div class="week-nav">
+      <div>
+        <p class="eyebrow">Visão da semana</p>
+        <div class="week-nav-title" id="week-title"></div>
+      </div>
+      <div class="date-nav">
+        <button class="icon-btn" id="week-prev" aria-label="Semana anterior">‹</button>
+        <button class="icon-btn" id="week-next" aria-label="Próxima semana">›</button>
+      </div>
+    </div>
+    <div class="week-grid" id="week-grid"></div>
+  </div>
+
   <div id="dash-mode" style="display:none;">
     <div class="stat-cards">
       <div class="stat-card"><div class="num" id="stat-today">0%</div><div class="lbl">concluído hoje</div></div>
@@ -239,6 +368,37 @@ input,select,textarea,button{font-family:'Space Grotesk',sans-serif;}
     </div>
     <p class="eyebrow">Relatórios recentes</p>
     <div class="reports-list" id="reports-list"></div>
+  </div>
+
+
+  <div id="week-mode" style="display:none;">
+    <div class="weekly-header">
+      <div>
+        <p class="eyebrow">Visão semanal</p>
+        <div class="weekly-title" id="weekly-title"></div>
+      </div>
+      <div class="weekly-nav">
+        <button class="icon-btn" id="prev-week" aria-label="Semana anterior">‹</button>
+        <button class="today-btn" id="current-week">semana atual</button>
+        <button class="icon-btn" id="next-week" aria-label="Próxima semana">›</button>
+      </div>
+    </div>
+
+    <div class="week-summary">
+      <div class="stat-card"><div class="num" id="week-stat-activities">0%</div><div class="lbl">atividades concluídas</div></div>
+      <div class="stat-card"><div class="num" id="week-stat-days">0/7</div><div class="lbl">dias completos</div></div>
+      <div class="stat-card"><div class="num" id="week-stat-meals">0/0</div><div class="lbl">refeições previstas</div></div>
+      <div class="stat-card"><div class="num" id="week-stat-prep">—</div><div class="lbl">preparação domingo</div></div>
+    </div>
+
+    <div class="week-legend">
+      <span class="lg-work">trabalho</span>
+      <span class="lg-study">estudo</span>
+      <span class="lg-personal">pessoal</span>
+      <span class="lg-meal">alimentação</span>
+    </div>
+
+    <div class="weekly-grid" id="weekly-grid"></div>
   </div>
 
   <div class="foot"><button id="reset-all">apagar meu modelo e histórico</button></div>
@@ -272,7 +432,6 @@ const DAYS = [
 ];
 const JS_DAY_TO_KEY = ['dom','seg','ter','qua','qui','sex','sab'];
 const TAG_LABEL = {trab:'trabalho', aula:'aula', extra:'pessoal'};
-
 const DEFAULT_TEMPLATE = {
   seg: [
     {id:'trab1', label:'Trabalho', start:'07:30', end:'12:30', type:'trab'},
@@ -284,9 +443,29 @@ const DEFAULT_TEMPLATE = {
     {id:'aula5', label:'Aula', start:'20:20', end:'21:10', type:'aula'},
     {id:'aula6', label:'Aula', start:'21:10', end:'22:00', type:'aula'},
   ],
-  sab: [], dom: []
+  sab: [], dom: [
+    {id:'marmitas', label:'Preparação das Marmitas da semana', start:'20:00', end:'22:00', type:'extra'}
+  ]
 };
-['ter','qua','qui','sex'].forEach(k=> DEFAULT_TEMPLATE[k] = DEFAULT_TEMPLATE.seg.map(b=>({...b})) );
+['ter','qua','qui','sex'].forEach(k=> DEFAULT_TEMPLATE[k] = DEFAULT_TEMPLATE.seg.map(b=>({...b})));
+
+const DEFAULT_MEALS = {
+  seg:[
+    {id:'cafe',name:'Café da Manhã',time:'08:30',location:'Trabalho',options:['100g de cuscuz','120g Frango']},
+    {id:'almoco',name:'Almoço',time:'12:30',location:'Refeitório Trabalho',options:['150g Melão ou Melancia ou Abacaxi']},
+    {id:'lanche',name:'Lanche da Tarde',time:'16:30',location:'Trabalho',options:['150g de cuscuz','3 Ovos']},
+    {id:'ceia',name:'Ceia',time:'20:30',location:'Trabalho',options:['100g de Cuscuz','120g Frango']}
+  ],
+  ter:[
+    {id:'cafe',name:'Café da Manhã',time:'08:30',location:'Trabalho',options:['2 Fatias Pão','120g Frango','25g Requeijão Cremoso Light']},
+    {id:'almoco',name:'Almoço',time:'12:30',location:'Refeitório Trabalho',options:['150g Melão ou Melancia ou Abacaxi']},
+    {id:'lanche',name:'Lanche da Tarde',time:'16:30',location:'Trabalho',options:['180g de Banana da Terra cozida','3 Ovos']},
+    {id:'ceia',name:'Ceia',time:'20:30',location:'Trabalho',options:['2 Fatias do pão de forma','100g carne']}
+  ],
+  qua:[], qui:[], sex:[], sab:[], dom:[]
+};
+['qua','sex','dom'].forEach(k=> DEFAULT_MEALS[k]=JSON.parse(JSON.stringify(DEFAULT_MEALS.seg)));
+['qui','sab'].forEach(k=> DEFAULT_MEALS[k]=JSON.parse(JSON.stringify(DEFAULT_MEALS.ter)));
 
 function pad(n){ return String(n).padStart(2,'0'); }
 function toDateStr(d){ return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate()); }
@@ -298,6 +477,11 @@ let template = null;
 let selectedDate = new Date();
 let editDayKey = JS_DAY_TO_KEY[new Date().getDay()];
 let currentDayData = {completed:[], report: emptyReport()};
+let weeklyDate = new Date();
+let meals = null;
+let mealEditDayKey = JS_DAY_TO_KEY[new Date().getDay()];
+let mealWeekDate = new Date();
+let weekViewDate = new Date();
 
 function flashStatus(el){
   el.classList.add('show');
@@ -318,6 +502,20 @@ async function fsSaveTemplate(tmpl){
     return true;
   }catch(e){ console.error('erro ao salvar modelo', e); return false; }
 }
+async function fsLoadMeals(){
+  try{
+    const doc = await db.collection('users').doc(currentUser.uid).collection('meta').doc('meals').get();
+    if(doc.exists) return doc.data();
+  }catch(e){ console.error('erro ao carregar refeições', e); }
+  return JSON.parse(JSON.stringify(DEFAULT_MEALS));
+}
+async function fsSaveMeals(data){
+  try{
+    await db.collection('users').doc(currentUser.uid).collection('meta').doc('meals').set(data);
+    return true;
+  }catch(e){ console.error('erro ao salvar refeições', e); return false; }
+}
+
 async function fsLoadDay(dateStr){
   try{
     const doc = await db.collection('users').doc(currentUser.uid).collection('days').doc(dateStr).get();
@@ -406,6 +604,106 @@ async function renderView(){
   document.getElementById('report-feito').value = currentDayData.report.feito||'';
   document.getElementById('report-faltou').value = currentDayData.report.faltou||'';
   document.getElementById('report-como').value = currentDayData.report.comoFoi||'';
+}
+
+
+function mondayOf(d){
+  const x=new Date(d); x.setHours(0,0,0,0);
+  const day=x.getDay(); const diff=day===0?-6:1-day;
+  x.setDate(x.getDate()+diff); return x;
+}
+function weekRangeLabel(d){
+  const m=mondayOf(d), e=new Date(m); e.setDate(e.getDate()+6);
+  return `${pad(m.getDate())}/${pad(m.getMonth()+1)} - ${pad(e.getDate())}/${pad(e.getMonth()+1)}`;
+}
+function mealsFor(k){ return (meals&&meals[k]||[]).slice().sort((a,b)=>a.time.localeCompare(b.time)); }
+
+function renderMealView(){
+  const m=mondayOf(mealWeekDate), container=document.getElementById('meal-view');
+  document.getElementById('meal-week-title').textContent='Semana {'+weekRangeLabel(m)+'}';
+  container.innerHTML='';
+  for(let i=0;i<7;i++){
+    const d=new Date(m); d.setDate(m.getDate()+i);
+    const key=JS_DAY_TO_KEY[d.getDay()];
+    const day=document.createElement('div'); day.className='meal-section';
+    const head=document.createElement('div'); head.className='section-head';
+    head.innerHTML=`<div><p class="eyebrow">${DAYS.find(x=>x.key===key).label}</p><h2 class="section-title">${pad(d.getDate())}/${pad(d.getMonth()+1)}</h2></div>`;
+    day.appendChild(head);
+    mealsFor(key).forEach(meal=>{
+      const card=document.createElement('div'); card.className='meal-card';
+      card.innerHTML=`<div class="meal-head"><div><div class="meal-time">${meal.time}</div><div class="meal-name">${meal.name}</div><div class="meal-location">${meal.location||''}</div></div></div>`;
+      const opts=document.createElement('div'); opts.className='meal-options';
+      (meal.options||[]).forEach(o=>{const el=document.createElement('div');el.className='meal-option';el.textContent=o;opts.appendChild(el);});
+      card.appendChild(opts); day.appendChild(card);
+    });
+    container.appendChild(day);
+  }
+}
+function renderMealTabs(){
+  const el=document.getElementById('meal-day-tabs'); el.innerHTML='';
+  DAYS.forEach(d=>{
+    const b=document.createElement('button'); b.className='day-tab'+(d.key===mealEditDayKey?' active':'');
+    b.textContent=d.short; b.onclick=()=>{mealEditDayKey=d.key;renderMealEditor();}; el.appendChild(b);
+  });
+}
+function renderMealEditor(){
+  renderMealTabs();
+  const el=document.getElementById('meal-edit-list'); el.innerHTML='';
+  mealsFor(mealEditDayKey).forEach(meal=>{
+    const card=document.createElement('div'); card.className='meal-edit-card';
+    const top=document.createElement('div'); top.className='meal-edit-top';
+    const time=document.createElement('input'); time.type='time'; time.value=meal.time;
+    const name=document.createElement('input'); name.type='text'; name.value=meal.name; name.placeholder='Nome da refeição';
+    const loc=document.createElement('input'); loc.type='text'; loc.value=meal.location||''; loc.placeholder='Local';
+    const del=document.createElement('button'); del.className='icon-danger'; del.textContent='×'; del.title='Remover refeição';
+    top.append(time,name,loc,del); card.appendChild(top);
+    const opts=document.createElement('div'); opts.className='option-list';
+    (meal.options||[]).forEach((value,idx)=>{
+      const row=document.createElement('div'); row.className='option-edit';
+      const input=document.createElement('input'); input.type='text'; input.value=value; input.placeholder='Opção de alimento';
+      const x=document.createElement('button'); x.className='icon-danger'; x.textContent='×'; x.title='Remover opção';
+      x.onclick=async()=>{ meal.options.splice(idx,1); await fsSaveMeals(meals); renderMealEditor(); renderMealView(); };
+      input.onchange=async()=>{meal.options[idx]=input.value.trim();await fsSaveMeals(meals);renderMealView();};
+      row.append(input,x); opts.appendChild(row);
+    });
+    const add=document.createElement('button'); add.className='add-option'; add.textContent='+ adicionar opção';
+    add.onclick=async()=>{meal.options.push('');await fsSaveMeals(meals);renderMealEditor();};
+    card.appendChild(opts); card.appendChild(add);
+    const commit=async()=>{meal.time=time.value;meal.name=name.value.trim()||'Refeição';meal.location=loc.value.trim();await fsSaveMeals(meals);renderMealView();};
+    time.onchange=commit; name.onchange=commit; loc.onchange=commit;
+    del.onclick=async()=>{meals[mealEditDayKey]=meals[mealEditDayKey].filter(x=>x.id!==meal.id);await fsSaveMeals(meals);renderMealEditor();renderMealView();};
+    el.appendChild(card);
+  });
+  if(!mealsFor(mealEditDayKey).length){const p=document.createElement('p');p.className='empty';p.textContent='Nenhuma refeição cadastrada neste dia.';el.appendChild(p);}
+}
+document.getElementById('add-meal-btn').onclick=async()=>{
+  if(!meals[mealEditDayKey]) meals[mealEditDayKey]=[];
+  meals[mealEditDayKey].push({id:'m-'+Date.now(),name:'Nova refeição',time:'18:00',location:'Trabalho',options:['']});
+  await fsSaveMeals(meals); renderMealEditor();
+};
+
+async function renderWeek(){
+  const base=mondayOf(weekViewDate), grid=document.getElementById('week-grid');
+  document.getElementById('week-title').textContent=weekRangeLabel(base);
+  grid.innerHTML='';
+  for(let i=0;i<7;i++){
+    const d=new Date(base); d.setDate(base.getDate()+i);
+    const key=JS_DAY_TO_KEY[d.getDay()], col=document.createElement('div');
+    const today=toDateStr(d)===toDateStr(new Date()); col.className='week-day'+(today?' today':'');
+    col.innerHTML=`<div class="week-day-head">${DAYS.find(x=>x.key===key).short}<strong>${pad(d.getDate())}/${pad(d.getMonth()+1)}</strong></div>`;
+    const ev=document.createElement('div'); ev.className='week-events';
+    const items=[
+      ...blocksFor(key).map(b=>({time:b.start,label:b.label,type:b.type,detail:b.end})),
+      ...mealsFor(key).map(m=>({time:m.time,label:m.name,type:'meal',detail:(m.options||[]).slice(0,2).join(' · ')}))
+    ].sort((a,b)=>a.time.localeCompare(b.time));
+    if(!items.length){const e=document.createElement('div');e.className='week-empty';e.textContent='Sem atividades';ev.appendChild(e);}
+    items.forEach(x=>{
+      const item=document.createElement('div');item.className='week-event '+x.type;
+      item.innerHTML=`<div class="we-time">${x.time}${x.type!=='meal'?' – '+x.detail:''}</div><div class="we-label">${x.label}</div>${x.type==='meal'?`<div class="we-detail">${x.detail}</div>`:''}`;
+      ev.appendChild(item);
+    });
+    col.appendChild(ev);grid.appendChild(col);
+  }
 }
 
 document.getElementById('report-save').onclick = async ()=>{
@@ -581,21 +879,199 @@ function setMode(mode){
   document.getElementById('view-mode').style.display = mode==='view' ? 'block':'none';
   document.getElementById('edit-mode').style.display = mode==='edit' ? 'block':'none';
   document.getElementById('dash-mode').style.display = mode==='dash' ? 'block':'none';
+  document.getElementById('week-mode').style.display = mode==='week' ? 'block':'none';
   document.getElementById('btn-view').classList.toggle('active', mode==='view');
   document.getElementById('btn-edit').classList.toggle('active', mode==='edit');
   document.getElementById('btn-dash').classList.toggle('active', mode==='dash');
+  document.getElementById('btn-week').classList.toggle('active', mode==='week');
   if(mode==='view') renderView();
   if(mode==='edit') renderEdit();
   if(mode==='dash') renderDash();
+  if(mode==='week') renderWeekly();
 }
+
+async function renderWeekly(){
+  const grid = document.getElementById('weekly-grid');
+  grid.innerHTML = '<div class="loading">Calculando semana...</div>';
+
+  const base = new Date(weeklyDate);
+  base.setHours(12,0,0,0);
+  const mondayOffset = (base.getDay()+6)%7;
+  const monday = new Date(base);
+  monday.setDate(base.getDate()-mondayOffset);
+
+  const sunday = new Date(monday);
+  sunday.setDate(monday.getDate()+6);
+
+  const fmt = d => pad(d.getDate())+'/'+pad(d.getMonth()+1);
+  document.getElementById('weekly-title').textContent =
+    `${fmt(monday)} - ${fmt(sunday)} · ${monday.getFullYear()}`;
+
+  const days = [];
+  let totalActivities=0, doneActivities=0, completeDays=0, totalMeals=0, completedMeals=0;
+
+  for(let i=0;i<7;i++){
+    const d = new Date(monday);
+    d.setDate(monday.getDate()+i);
+    const dateStr = toDateStr(d);
+    const dayKey = JS_DAY_TO_KEY[d.getDay()];
+    const blocks = blocksFor(dayKey);
+    const dayData = await fsLoadDay(dateStr);
+
+    const activityBlocks = blocks.filter(b=>b.type!=='meal');
+    const mealsFromTemplate = (typeof mealsFor === 'function') ? mealsFor(dayKey) : [];
+    const total = activityBlocks.length;
+    const done = activityBlocks.filter(b=>dayData.completed.includes(b.id)).length;
+
+    totalActivities += total;
+    doneActivities += done;
+    if(total>0 && done===total) completeDays++;
+
+    totalMeals += mealsFromTemplate.length;
+    completedMeals += mealsFromTemplate.filter(m=>dayData.mealsCompleted && dayData.mealsCompleted.includes(m.id)).length;
+
+    days.push({d,dateStr,dayKey,blocks:activityBlocks,meals:mealsFromTemplate,dayData,total,done});
+  }
+
+  grid.innerHTML='';
+
+  const todayStr = toDateStr(new Date());
+
+  days.forEach(day=>{
+    const col=document.createElement('div');
+    col.className='week-day'+(day.dateStr===todayStr?' today':'');
+
+    const head=document.createElement('div');
+    head.className='week-day-head';
+
+    const left=document.createElement('div');
+    left.innerHTML =
+      `<div class="week-day-name">${DAYS.find(x=>x.key===day.dayKey).short}</div>`+
+      `<div class="week-day-date">${fmt(day.d)}</div>`;
+
+    const pct=day.total?Math.round(day.done/day.total*100):0;
+    const right=document.createElement('div');
+    right.className='week-day-progress';
+    right.textContent=`${day.done}/${day.total}`;
+
+    head.appendChild(left);
+    head.appendChild(right);
+    col.appendChild(head);
+
+    const track=document.createElement('div');
+    track.className='week-progress-track';
+    const fill=document.createElement('div');
+    fill.className='week-progress-fill';
+    fill.style.width=pct+'%';
+    track.appendChild(fill);
+    col.appendChild(track);
+
+    const items=document.createElement('div');
+    items.className='week-items';
+
+    const combined=[
+      ...day.meals.map(m=>({kind:'meal',time:m.time,label:m.label,options:m.options||[],id:m.id})),
+      ...day.blocks.map(b=>({kind:'activity',time:b.start,label:b.label,id:b.id,type:b.type,block:b}))
+    ].sort((a,b)=>a.time.localeCompare(b.time));
+
+    if(!combined.length){
+      items.innerHTML='<div class="week-empty">Nenhuma atividade.</div>';
+    } else {
+      combined.forEach(item=>{
+        const isMeal=item.kind==='meal';
+        const done=isMeal
+          ? !!(day.dayData.mealsCompleted && day.dayData.mealsCompleted.includes(item.id))
+          : day.dayData.completed.includes(item.id);
+
+        const row=document.createElement('div');
+        row.className='week-item'+(done?' done':'')+(isMeal?' week-meal':'');
+
+        const check=document.createElement('div');
+        check.className='week-item-check'+(done?' done':'');
+        check.textContent=done?'✓':'';
+
+        const body=document.createElement('div');
+        body.className='week-item-body';
+
+        const time=document.createElement('div');
+        time.className='week-item-time';
+        time.textContent=isMeal?item.time:(item.block.start+' – '+item.block.end);
+
+        const label=document.createElement('div');
+        label.className='week-item-label';
+        label.textContent=item.label;
+
+        body.appendChild(time);
+        body.appendChild(label);
+
+        if(isMeal && item.options.length){
+          const opts=document.createElement('div');
+          opts.className='week-meal-options';
+          opts.textContent=item.options.join(' · ');
+          body.appendChild(opts);
+        }
+
+        row.appendChild(check);
+        row.appendChild(body);
+        items.appendChild(row);
+      });
+    }
+
+    col.appendChild(items);
+
+    col.onclick=()=>{
+      selectedDate=new Date(day.d);
+      setMode('view');
+    };
+
+    grid.appendChild(col);
+  });
+
+  const activityPct=totalActivities?Math.round(doneActivities/totalActivities*100):0;
+  document.getElementById('week-stat-activities').textContent=activityPct+'%';
+  document.getElementById('week-stat-days').textContent=completeDays+'/7';
+  document.getElementById('week-stat-meals').textContent=completedMeals+'/'+totalMeals;
+
+  const sundayData=days[6];
+  const prep=(sundayData.blocks||[]).find(b=>
+    b.label.toLowerCase().includes('prepara') &&
+    b.label.toLowerCase().includes('marmita')
+  );
+  document.getElementById('week-stat-prep').textContent =
+    prep ? (sundayData.dayData.completed.includes(prep.id)?'feito':'pendente') : '—';
+}
+
+document.getElementById('prev-week').onclick=()=>{
+  weeklyDate.setDate(weeklyDate.getDate()-7);
+  renderWeekly();
+};
+document.getElementById('next-week').onclick=()=>{
+  weeklyDate.setDate(weeklyDate.getDate()+7);
+  renderWeekly();
+};
+document.getElementById('current-week').onclick=()=>{
+  weeklyDate=new Date();
+  renderWeekly();
+};
+
+
 document.getElementById('btn-view').onclick = ()=> setMode('view');
 document.getElementById('btn-edit').onclick = ()=> setMode('edit');
+document.getElementById('btn-meals').onclick = ()=> setMode('meals');
+document.getElementById('btn-week').onclick = ()=> setMode('week');
 document.getElementById('btn-dash').onclick = ()=> setMode('dash');
+document.getElementById('btn-week').onclick = ()=> setMode('week');
+document.getElementById('meal-prev-week').onclick=()=>{mealWeekDate.setDate(mealWeekDate.getDate()-7);renderMealView();};
+document.getElementById('meal-next-week').onclick=()=>{mealWeekDate.setDate(mealWeekDate.getDate()+7);renderMealView();};
+document.getElementById('week-prev').onclick=()=>{weekViewDate.setDate(weekViewDate.getDate()-7);renderWeek();};
+document.getElementById('week-next').onclick=()=>{weekViewDate.setDate(weekViewDate.getDate()+7);renderWeek();};
 
 document.getElementById('reset-all').onclick = async ()=>{
   if(!confirm('Isso vai apagar o modelo semanal salvo na nuvem. O histórico de dias permanece. Confirmar?')) return;
   template = JSON.parse(JSON.stringify(DEFAULT_TEMPLATE));
+  meals = JSON.parse(JSON.stringify(DEFAULT_MEALS));
   await fsSaveTemplate(template);
+  await fsSaveMeals(meals);
   setMode('view');
 };
 
@@ -641,7 +1117,9 @@ auth.onAuthStateChanged(async (user)=>{
     document.getElementById('user-email').textContent = user.email;
     document.getElementById('loading-msg').style.display='block';
     document.getElementById('view-mode').style.display='none';
+    document.getElementById('week-mode').style.display='none';
     template = await fsLoadTemplate();
+    meals = await fsLoadMeals();
     document.getElementById('loading-msg').style.display='none';
     setMode('view');
   } else {
